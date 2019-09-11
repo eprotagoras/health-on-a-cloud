@@ -11,9 +11,9 @@ class SubscriberForm extends React.Component {
         this.state = {
             error: null,
             connected: false,
-            api_key: '',
-            session_id: '',
-            token: ''
+            api_key: props.api_key,
+            session_id: props.session_id,
+            token: props.token,
         };
 
         this.setAPIKey = this.setAPIKey.bind(this);
@@ -56,9 +56,10 @@ class SubscriberForm extends React.Component {
     }
 
     handleSubmit = (event) => {
-        alert(this.state.api_key + ' ' + this.state.session_id + ' ' + this.state.token);
+        // alert(this.state.api_key + ' ' + this.state.session_id + ' ' + this.state.token);
         console.log("Submitting keys!");
         this.setState({ connected: true })
+
         
         // this.render();
         event.preventDefault();
@@ -67,30 +68,6 @@ class SubscriberForm extends React.Component {
     render() {
         return (
             <view>
-                <form className="subscriber-form" onSubmit={this.handleSubmit}>
-                    <h1>TokBox React Demo</h1>
-                    <ul>
-                        <li>
-                            <label for="api_key">API Key</label>
-                            <input name="api_key" type="text" value={this.state.api_key} onChange={this.setAPIKey} placeholder="api_key" />
-                            <span>Enter a valid TokBox API Key</span>
-                        </li>
-                        <li>
-                            <label for="session_Id">Session ID</label>
-                            <input name="session_Id" type="text" value={this.state.session_id} onChange={this.setSessionId} placeholder="session_id" />
-                            <span>Enter a valid Session ID for your TokBox Session</span>
-                        </li>
-                        <li>
-                            <label for="token">Token</label>
-                            <input name="token" type="text" value={this.state.token} onChange={this.setToken} placeholder="token" />
-                            <span>Enter a valid Token for your TokBox Session</span>
-                        </li>
-                        <li>
-                            <input type="submit" value="submit" />
-                        </li>
-                    </ul>
-                 </form>
-
                 {this.state.connected && this.state.api_key && this.state.session_id && this.state.token? 
                     <OTSession
                         apiKey={this.state.api_key}
@@ -108,8 +85,30 @@ class SubscriberForm extends React.Component {
                             <Subscriber />
                         </OTStreams>
 
-                    </OTSession>  
-                    : null}
+                    </OTSession>
+                    : <form className="subscriber-form" onSubmit={this.handleSubmit}>
+                    <h1>TokBox React Demo</h1>
+                    <ul>
+                        <li>
+                            <label for="api_key">API Key</label>
+                            <input name="api_key" type="text" value={this.state.api_key} onChange={this.setAPIKey} />
+                            <span>Enter a valid TokBox API Key</span>
+                        </li>
+                        <li>
+                            <label for="session_Id">Session ID</label>
+                            <input name="session_Id" type="text" value={this.state.session_id} onChange={this.setSessionId} />
+                            <span>Enter a valid Session ID for your TokBox Session</span>
+                        </li>
+                        <li>
+                            <label for="token">Token</label>
+                            <input name="token" type="text" value={this.state.token} onChange={this.setToken} />
+                            <span>Enter a valid Token for your TokBox Session</span>
+                        </li>
+                        <li>
+                            <input type="submit" value="submit" />
+                        </li>
+                    </ul>
+                 </form>}
             </view>
         );
     }

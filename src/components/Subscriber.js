@@ -1,5 +1,5 @@
 import React from 'react';
-import { OTSubscriber } from 'opentok-react';
+import { OTSubscriber, OTSubscriberView } from 'opentok-react';
 import CheckBox from './CheckBox';
 
 class Subscriber extends React.Component {
@@ -10,8 +10,14 @@ class Subscriber extends React.Component {
             error: null,
             audio: true,
             video: true
-        };
+        };        
     }
+
+    renderSubscribers = (subscribers) => {
+        return subscribers.map((streamId) => (
+            <OTSubscriberView streamId={streamId}  />
+        ));
+    };
 
     setAudio = (audio) => {
         this.setState({ audio });
@@ -36,7 +42,9 @@ class Subscriber extends React.Component {
                         subscribeToVideo: this.state.video
                     }}
                     onError={this.onError}
-                />
+                >
+                    {this.renderSubscribers}
+                </OTSubscriber>
 
                 <CheckBox
                     label="Subscribe to Audio"

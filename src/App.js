@@ -54,6 +54,9 @@ class App extends React.Component {
 
         <SubscriberForm 
           name="Form"
+          api_key={this.props.apiKey}
+          session_id={this.props.sessionId}
+          token={this.props.token}
         />
 
        // <Publisher />
