@@ -2,6 +2,7 @@ import React from 'react';
 import { OTSession, OTStreams, preloadScript } from 'opentok-react';
 import ConnectionStatus from './ConnectionStatus';
 import Subscriber from './Subscriber';
+import '../App.css';
 
 class SubscriberForm extends React.Component {
     constructor(props) {

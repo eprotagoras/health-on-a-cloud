@@ -33,7 +33,7 @@
 }
 
 body, html {
-  background-color: coral;
+  background-color: blanchedalmond;
   height: 100%;
   font-family: Verdana, Geneva, sans-serif
 }
@@ -63,7 +63,12 @@ input[type=text] {
   border-radius: 10px;
 }
 
-.subscriberForm {
+.subscriber-form {
+  flex: 1;
+  flex-direction: column;
+}
+
+form {
   flex: 1;
   flex-direction: column;
 }
