@@ -66,13 +66,29 @@ class SubscriberForm extends React.Component {
 
     render() {
         return (
-            <div className="subscriber-form">
-                <label>tokbox-react-demo</label>
+            <view className="subscriber-form">
+                <view className="subscriber-form-title">
+                    <label>tokbox-react-demo</label>
+                </view>
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" value={this.state.api_key} onChange={this.setAPIKey} placeholder="api_key" />
-                    <input type="text" value={this.state.session_id} onChange={this.setSessionId} placeholder="session_id" />
-                    <input type="text" value={this.state.token} onChange={this.setToken} placeholder="token" />
-                    <input type="submit" value="submit" />
+                    <view className="subscriber-form-field">
+                        <label>API Key</label>
+                        <br />
+                        <input type="text" value={this.state.api_key} onChange={this.setAPIKey} placeholder="api_key" />
+                    </view>
+                    <view className="subscriber-form-field">
+                        <label>SessionID</label>
+                        <br />
+                        <input type="text" value={this.state.session_id} onChange={this.setSessionId} placeholder="session_id" />
+                    </view>
+                    <view className="subscriber-form-field">
+                        <label>Token</label>
+                        <br />
+                        <input type="text" value={this.state.token} onChange={this.setToken} placeholder="token" />
+                    </view>
+                    <view className="subscriber-form-submit">
+                        <input type="submit" value="submit" />
+                    </view>
                  </form>
 
                 {this.state.connected && this.state.api_key && this.state.session_id && this.state.token? 
@@ -94,7 +110,7 @@ class SubscriberForm extends React.Component {
 
                     </OTSession>  
                     : null}
-            </div>
+            </view>
         );
     }
 }

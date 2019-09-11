@@ -33,7 +33,7 @@
 }
 
 body, html {
-  background-color: blanchedalmond;
+  background-color: lightblue;
   height: 100%;
   font-family: Verdana, Geneva, sans-serif
 }
@@ -66,9 +66,8 @@ input[type=text] {
 .subscriber-form {
   flex: 1;
   flex-direction: column;
-}
-
-form {
-  flex: 1;
-  flex-direction: column;
+  margin: auto;
+  width: 40%;
+  border: 3px solid darkgreen;
+  padding: 10px;
 }
