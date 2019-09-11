@@ -33,7 +33,7 @@
 }
 
 body, html {
-  background-color: pink;
+  background-color: coral;
   height: 100%;
   font-family: Verdana, Geneva, sans-serif
 }
@@ -55,4 +55,15 @@ body, html {
 }
 #error {
   color: red;
+}
+
+input[type=text] {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.subscriberForm {
+  flex: 1;
+  flex-direction: column;
 }

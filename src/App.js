@@ -4,7 +4,7 @@ import './App.css';
 import { OTSession, OTStreams, preloadScript } from 'opentok-react';
 import ConnectionStatus from './components/ConnectionStatus';
 import Publisher from './components/Publisher';
-import Subscriber from './components/Subscriber';
+//import Subscriber from './components/Subscriber';
 import SubscriberForm from './components/SubscriberForm';
 
 class App extends React.Component {
@@ -40,31 +40,33 @@ class App extends React.Component {
 
   render() {
     return (
-      <OTSession
-        apiKey={this.props.apiKey}
-        sessionId={this.props.sessionId}
-        token={this.props.token}
-        eventHandlers={this.sessionEvents}
-        onError={this.onError}
-        >
+      //<OTSession
+      //  apiKey={this.props.apiKey}
+      //  sessionId={this.props.sessionId}
+      //  token={this.props.token}
+      //  eventHandlers={this.sessionEvents}
+      //  onError={this.onError}
+      //  >
 
-        {this.state.error ? <div id="error">{this.state.error}</div> : null}
+      //  {this.state.error ? <div id="error">{this.state.error}</div> : null}
 
-        <ConnectionStatus connected={this.state.connected} />
+      //  <ConnectionStatus connected={this.state.connected} />
 
         <SubscriberForm 
           name="Form"
         />
 
-        <Publisher />
+       // <Publisher />
 
-        <OTStreams>
-          <Subscriber />
-        </OTStreams>
+        
 
-      </OTSession>  
+      //</OTSession>  
     );
   }
 }
 
 export default preloadScript(App);
+
+//<OTStreams>
+//<Subscriber />
+//</OTStreams>
