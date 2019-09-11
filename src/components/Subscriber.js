@@ -1,6 +1,7 @@
 import React from 'react';
 import { OTSubscriber, OTSubscriberView } from 'opentok-react';
 import CheckBox from './CheckBox';
+import '../App.css';
 
 class Subscriber extends React.Component {
     constructor(props) {
@@ -15,7 +16,9 @@ class Subscriber extends React.Component {
 
     renderSubscribers = (subscribers) => {
         return subscribers.map((streamId) => (
-            <OTSubscriberView streamId={streamId}  />
+            <OTSubscriberView streamId={streamId}>
+                <canvas id="bounding-box"></canvas>
+            </OTSubscriberView>
         ));
     };
 
@@ -24,6 +27,15 @@ class Subscriber extends React.Component {
     }
     setVideo = (video) => {
         this.setState({ video });
+
+        var canvas = document.getElementById('canvas');
+        if (canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+
+            ctx.fillRect(25, 25, 100, 100);
+            ctx.clearRect(45, 45, 60, 60);
+            ctx.strokeRect(50, 50, 50, 50);
+        }
     }
     onError = (err) => {
         this.setState({ error: `Failed to subscribe: ${err.message}` });
