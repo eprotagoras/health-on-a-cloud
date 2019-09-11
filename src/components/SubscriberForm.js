@@ -66,29 +66,29 @@ class SubscriberForm extends React.Component {
 
     render() {
         return (
-            <view className="subscriber-form">
-                <view className="subscriber-form-title">
-                    <label>tokbox-react-demo</label>
-                </view>
-                <form onSubmit={this.handleSubmit}>
-                    <view className="subscriber-form-field">
-                        <label>API Key</label>
-                        <br />
-                        <input type="text" value={this.state.api_key} onChange={this.setAPIKey} placeholder="api_key" />
-                    </view>
-                    <view className="subscriber-form-field">
-                        <label>SessionID</label>
-                        <br />
-                        <input type="text" value={this.state.session_id} onChange={this.setSessionId} placeholder="session_id" />
-                    </view>
-                    <view className="subscriber-form-field">
-                        <label>Token</label>
-                        <br />
-                        <input type="text" value={this.state.token} onChange={this.setToken} placeholder="token" />
-                    </view>
-                    <view className="subscriber-form-submit">
-                        <input type="submit" value="submit" />
-                    </view>
+            <view>
+                <form className="subscriber-form" onSubmit={this.handleSubmit}>
+                    <h1>TokBox React Demo</h1>
+                    <ul>
+                        <li>
+                            <label for="api_key">API Key</label>
+                            <input name="api_key" type="text" value={this.state.api_key} onChange={this.setAPIKey} placeholder="api_key" />
+                            <span>Enter a valid TokBox API Key</span>
+                        </li>
+                        <li>
+                            <label for="session_Id">Session ID</label>
+                            <input name="session_Id" type="text" value={this.state.session_id} onChange={this.setSessionId} placeholder="session_id" />
+                            <span>Enter a valid Session ID for your TokBox Session</span>
+                        </li>
+                        <li>
+                            <label for="token">Token</label>
+                            <input name="token" type="text" value={this.state.token} onChange={this.setToken} placeholder="token" />
+                            <span>Enter a valid Token for your TokBox Session</span>
+                        </li>
+                        <li>
+                            <input type="submit" value="submit" />
+                        </li>
+                    </ul>
                  </form>
 
                 {this.state.connected && this.state.api_key && this.state.session_id && this.state.token? 
