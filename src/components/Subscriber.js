@@ -34,9 +34,9 @@ class Subscriber extends React.Component {
             var ctx = canvas.getContext('2d');
 
             if (this.state.boxActive) {
-                ctx.strokeRect(50, 50, 50, 50);
-            } else {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
+            } else {
+                ctx.strokeRect(50, 50, 50, 50);
             }
         }
 
