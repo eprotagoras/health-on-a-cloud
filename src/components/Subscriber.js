@@ -10,15 +10,15 @@ class Subscriber extends React.Component {
         this.state = {
             error: null,
             audio: true,
-            video: true
+            video: true,
+            boxActive: false
         };        
     }
 
     renderSubscribers = (subscribers) => {
+        console.log("Rendering subscribers!");
         return subscribers.map((streamId) => (
-            <OTSubscriberView streamId={streamId}>
-                <canvas id="bounding-box"></canvas>
-            </OTSubscriberView>
+            <OTSubscriberView streamId={streamId} />
         ));
     };
 
@@ -27,15 +27,20 @@ class Subscriber extends React.Component {
     }
     setVideo = (video) => {
         this.setState({ video });
-
-        var canvas = document.getElementById('canvas');
-        if (canvas.getContext) {
+    }
+    showBoundingBox = (boxActive) => {
+        var canvas = document.getElementById('bounding-box');
+        if (canvas && canvas.getContext) {
             var ctx = canvas.getContext('2d');
 
-            ctx.fillRect(25, 25, 100, 100);
-            ctx.clearRect(45, 45, 60, 60);
-            ctx.strokeRect(50, 50, 50, 50);
+            if (this.state.boxActive) {
+                ctx.strokeRect(50, 50, 50, 50);
+            } else {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
         }
+
+        this.setState({ boxActive });
     }
     onError = (err) => {
         this.setState({ error: `Failed to subscribe: ${err.message}` });
@@ -44,11 +49,10 @@ class Subscriber extends React.Component {
     render() {
         return (
             <div className="subscriber">
-                Subscriber
-                
                 {this.state.error ? <div id="error">{this.state.error}</div> : null}
 
-                <OTSubscriber 
+                <div className="subscriber-box">
+                <OTSubscriber
                     properties={{
                         subscribeToAudio: this.state.audio,
                         subscribeToVideo: this.state.video
@@ -57,6 +61,11 @@ class Subscriber extends React.Component {
                 >
                     {this.renderSubscribers}
                 </OTSubscriber>
+                </div>
+                
+                <div className="bounding-box">
+                    <canvas id="bounding-box"></canvas>
+                </div>
 
                 <CheckBox
                     label="Subscribe to Audio"
@@ -68,7 +77,16 @@ class Subscriber extends React.Component {
                     initialChecked={this.state.video}
                     onChange={this.setVideo}
                 />
+                <CheckBox 
+                    label="Show Bounding Box"
+                    initialChecked={this.state.boxActive}
+                    onChange={this.showBoundingBox}
+                />
+
+                
             </div>
+            
+            
         );
     }
 }
