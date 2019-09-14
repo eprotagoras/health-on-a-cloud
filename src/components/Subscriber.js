@@ -1,5 +1,6 @@
 import React from 'react';
-import { OTSubscriber, OTSubscriberView } from 'opentok-react';
+import { OTSubscriberView } from 'opentok-react';
+import { OTSubscriber } from 'opentok-react-data-clone';
 import CheckBox from './CheckBox';
 import '../App.css';
 
