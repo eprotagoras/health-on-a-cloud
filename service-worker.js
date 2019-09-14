@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/health-on-a-cloud/precache-manifest.8ed09d7ec8c7813cde99a550df156ad7.js"
+  "/health-on-a-cloud/precache-manifest.94a74804c4318050de912829cdf9dc87.js"
 );
 
 self.addEventListener('message', (event) => {
