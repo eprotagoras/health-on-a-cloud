@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "866aada59879aa9109aa406567a5420a",
+    "revision": "35ff2580dd14643a5162bc9d744f108c",
     "url": "/health-on-a-cloud/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/health-on-a-cloud/static/css/main.4dc46c80.chunk.css"
   },
   {
-    "revision": "ec6e3a727a72a1859398",
-    "url": "/health-on-a-cloud/static/js/2.02e88db3.chunk.js"
+    "revision": "1a8fd1693d042f886404",
+    "url": "/health-on-a-cloud/static/js/2.4b8de575.chunk.js"
   },
   {
     "revision": "ea8de1fed26daf8030af",
