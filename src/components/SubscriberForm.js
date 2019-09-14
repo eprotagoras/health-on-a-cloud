@@ -2,6 +2,7 @@ import React from 'react';
 import { OTSession, OTStreams, preloadScript } from 'opentok-react';
 import ConnectionStatus from './ConnectionStatus';
 import Subscriber from './Subscriber';
+import { OTPublisher } from 'opentok-react-data-clone';
 import '../App.css';
 
 class SubscriberForm extends React.Component {
@@ -79,7 +80,9 @@ class SubscriberForm extends React.Component {
             
                         {this.state.error ? <div id="error">{this.state.error}</div> : null}
             
-                        <ConnectionStatus connected={this.state.connected} />        
+                        <ConnectionStatus connected={this.state.connected} />    
+
+                        <OTPublisher />    
             
                         <OTStreams>
                             <Subscriber />
@@ -114,4 +117,4 @@ class SubscriberForm extends React.Component {
     }
 }
 
-export default SubscriberForm;
+export default preloadScript(SubscriberForm);
